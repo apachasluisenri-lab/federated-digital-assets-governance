@@ -1,0 +1,42 @@
+openapi: 3.0.3
+info:
+  title: FDAGM Automated Quality Gate API
+  description: ISO-as-Code verification gateway for federated Information Mediator architectures.
+  version: 2.0.0
+  contact:
+    name: Luis Enrique Almeyda Pachas
+    url: https://orcid.org/0000-0003-3170-7044
+paths:
+  /v2/quality-gate/verify:
+    post:
+      summary: Validate Data Product assertion against ISO 8000 and Zero-PII policies
+      operationId: verifyDataProductAssertion
+      requestBody:
+        required: true
+        content:
+          application/ld+json:
+            schema:
+              type: object
+              required:
+                - "@id"
+                - "iso8000:semanticEncodingURI"
+                - "iso8000:qualityMetrics"
+                - "fdagm:cryptographicProof"
+      responses:
+        '200':
+          description: Assertion passed ISO-as-Code verification gate
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: VERIFIED
+                  complianceScore:
+                    type: number
+                    example: 0.999
+                  ledgerReceiptHash:
+                    type: string
+        '422':
+          description: Semantic, quality threshold, or PII leak violation detected
