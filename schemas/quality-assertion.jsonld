@@ -1,0 +1,10 @@
+--- ### 2. Archivo `schemas/quality-assertion.jsonld` (Contrato Semántico ISO 8000 sin PII) 
+```json 
+{ "@context": 
+{ "@vocab": "https://schema.org/",
+ "fdagm": "https://w3id.org/fdagm/core#", 
+"iso8000": "https://standards.iso.org/iso/8000#", 
+"prov": "http://www.w3.org/ns/prov#", 
+"xsd": "http://www.w3.org/2001/XMLSchema#" 
+}, 
+"@type": "fdagm:DataProductAssertion", "@id": "urn:uuid:9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d", "iso8000:semanticEncodingURI": "https://ontology.dpi.gov/entities/vulnerability-index-v2", "prov:wasAttributedTo": { "@type": "fdagm:SourceDataOwner", "identifier": "did:web:social-protection-node.gov", "role": "Institutional Data Custodian" }, "prov:generatedAtTime": { "@value": "2026-11-12T17:30:00Z", "@type": "xsd:dateTime" }, "iso8000:qualityMetrics": { "iso8000:syntacticAccuracy": 0.998, "iso8000:completenessScore": 1.000, "iso25500:supplyChainTraceability": true, "fdagm:piiExposureLevel": "ZERO_RAW_PII" }, "fdagm:cryptographicProof": { "hashAlgorithm": "SHA-256", "merkleRootHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", "verificationMethod": "did:web:social-protection-node.gov#keys-1" } }
